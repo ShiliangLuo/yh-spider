@@ -19,10 +19,7 @@ const fetchData = async () => {
     // console.log(ids);
     // 循环取得视频地址
     for (let i = 0, len = ids.length; i < len; i++) {
-      if (alreadyDownloadIds.includes(i)) {
-        console.log('ok');
-        continue;
-      }
+      if (alreadyDownloadIds.includes(i)) continue;
 
       try {
         const html = await getVideoPathById(ids[i]);
