@@ -11,12 +11,16 @@ let filepPath = '/playdata/159/4767.js';
 let link = `${host}${filepPath}`;
 
 const fetchData = async () => {
+  // 处理文件路径
   const alreadyDownloadIds = await dealDir();
+  // 取得包含视频id或视频url的js文件
   const response = await getIds(link);
+  console.log('response', response);
 
   if (response) {
+    // 正则匹配，找出视频id或视频url
     const ids = await getIdByReg(response);
-    // console.log(ids);
+    console.log(ids);
     // 循环取得视频地址
     for (let i = 0, len = ids.length; i < len; i++) {
       if (alreadyDownloadIds.includes(i)) continue;
