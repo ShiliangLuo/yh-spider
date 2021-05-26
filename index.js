@@ -3,24 +3,27 @@ const getIdByReg = require('./src/getIdByReg');
 const getVideoPathById = require('./src/getVideoPathById');
 const getVideoByUrl = require('./src/getVideoByUrl');
 const saveVideo = require('./src/saveVideo');
+const dealDir = require('./src/dealDir');
 
 const host = 'http://www.imomoe.la';
-let path = '/playdata/159/4767.js';
+let filepPath = '/playdata/159/4767.js';
 
-let link = `${host}${path}`;
+let link = `${host}${filepPath}`;
 
 const fetchData = async () => {
-  const response = await getIds(link).catch(err => {
-    throw err;
-  });
+  const alreadyDownloadIds = await dealDir();
+  const response = await getIds(link);
 
   if (response) {
     const ids = await getIdByReg(response);
-
-    console.log(ids);
-
+    // console.log(ids);
     // 循环取得视频地址
     for (let i = 0, len = ids.length; i < len; i++) {
+      if (alreadyDownloadIds.includes(i)) {
+        console.log('ok');
+        continue;
+      }
+
       try {
         const html = await getVideoPathById(ids[i]);
         const videoData = await getVideoByUrl(html);

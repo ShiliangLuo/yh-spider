@@ -13,7 +13,7 @@ const getIdByReg = data => {
   }
 
   // return result;
-  return Promise.resolve(result)
+  return Promise.resolve(result);
 };
 
 const _getIdByReg = data => {
