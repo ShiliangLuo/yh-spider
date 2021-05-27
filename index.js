@@ -15,7 +15,6 @@ const fetchData = async () => {
   const alreadyDownloadIds = await dealDir();
   // 取得包含视频id或视频url的js文件
   const response = await getIds(link);
-  console.log('response', response);
 
   if (response) {
     // 正则匹配，找出视频id或视频url
