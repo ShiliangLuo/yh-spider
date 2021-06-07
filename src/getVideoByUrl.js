@@ -2,11 +2,11 @@ const http = require('http');
 
 const getVideoByUrl = html => {
   return new Promise(resolve => {
-    let url = `http://${html.match(/\'http\:\/\/(.+?)\'/)[1]}`;
+    // let url = `http://${html.match(/\'http\:\/\/(.+?)\'/)[1]}`;
     let data = '';
 
     http.get(
-      url,
+      html,
       {
         headers: {
           'User-Agent':

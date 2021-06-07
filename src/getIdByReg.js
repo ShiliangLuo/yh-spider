@@ -1,6 +1,6 @@
 // 正则提取id数组
-const reg = /\$(.+?)\$letv/;
-const reg_g = /\$(.+?)\$letv/g;
+const reg = /\$(.+?)\$flv/;
+const reg_g = /\$(.+?)\$flv/g;
 
 const getIdByReg = data => {
   // 方法一：match

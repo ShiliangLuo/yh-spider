@@ -6,7 +6,7 @@ const saveVideo = require('./src/saveVideo');
 const dealDir = require('./src/dealDir');
 
 const host = 'http://www.imomoe.la';
-let filepPath = '/playdata/159/4767.js';
+let filepPath = '/playdata/120/7288.js';
 
 let link = `${host}${filepPath}`;
 
@@ -25,8 +25,8 @@ const fetchData = async () => {
       if (alreadyDownloadIds.includes(i)) continue;
 
       try {
-        const html = await getVideoPathById(ids[i]);
-        const videoData = await getVideoByUrl(html);
+        // const html = await getVideoPathById(ids[i]);
+        const videoData = await getVideoByUrl(ids[i]);
 
         saveVideo(videoData, i);
       } catch (e) {
